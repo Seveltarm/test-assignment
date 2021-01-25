@@ -1,0 +1,17 @@
+{
+    "transfer-title": "Wykonaj przelew",
+    "from-account": "Z konta",
+    "to-account": "Na konto",
+    "amount": "Wysokość przelewu",
+    "account-balance": "Stan konta",
+    "submit": "Zleć",
+    "required-field": "Uzupełnij wymagane pole",
+    "transfer-question": "Czy na pewno chcesz wykonać przelew?",
+    "cancel-button": "Anuluj",
+    "transfer": "Wykonaj",
+    "recent-transactions": "Ostatnie tranzakcje",
+    "sort-by": "Sortuj po",
+    "date": "Dacie",
+    "beneficiary": "Odbiorca",
+    "search-type": "Wyszukaj..."
+  }

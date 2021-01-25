@@ -1,0 +1,17 @@
+{
+    "transfer-title": "Make a transfer",
+    "from-account": "From Account",
+    "to-account": "To Account",
+    "amount": "Amount",
+    "account-balance": "Account Balance",
+    "submit": "Submit",
+    "required-field": "Fill required field",
+    "transfer-question": "Are you sure about this transfer?",
+    "cancel-button": "Cancel",
+    "transfer": "Transfer",
+    "recent-transactions": "Recent transactions",
+    "sort-by": "Sort by",
+    "date": "Date",
+    "beneficiary": "Beneficiary",
+    "search-type": "Search by typing..."
+}

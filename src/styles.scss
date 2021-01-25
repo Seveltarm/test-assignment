@@ -1,1 +1,88 @@
-/* You can add global styles to this file, and also import other style files */
+@import './assets/scss/buttons.scss';
+@import './assets/scss/companies.scss';
+@import './assets/scss/sr-only.scss';
+
+@font-face { 
+    font-family: Kanit; src: url('./assets/fonts/Kanit-Regular.ttf'); 
+} 
+
+@font-face {
+    font-family: KanitBold; src: url('./assets/fonts/Kanit-Bold.ttf');
+}
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+html, body, .wrap  {
+    height: 100%;
+}
+
+body {
+    font-family: 'Kanit';
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+}
+
+input {
+    border: transparent;
+    border-bottom: 1px solid;
+    border-bottom-color: #D6D2CE;
+    font-family: Kanit;
+    min-height: 34px;
+    padding: 10px 0;
+}
+
+input:disabled  {
+    background-color: white;
+}
+
+.bold {
+    font-family: KanitBold;
+}
+
+.row {
+    display: flex;
+    flex-direction: column;
+    margin: 0 35px;
+}
+
+.error { 
+    color: red;
+}
+
+.mt-70 {
+    margin-top: 70px;
+}
+
+.col-small {
+    width: 30%;
+}
+
+.col-medium {
+    width: 70%;
+}
+
+
+@media (max-width: 769px) {
+    .col-small {
+        width: unset;
+    }
+
+    .col-medium {
+        width: unset;
+    }
+
+    .col-large {
+        width: 100%;
+    }
+
+    .sort {
+        position: relative;
+        margin-top: 0;
+        margin-left: 0;
+    }
+}

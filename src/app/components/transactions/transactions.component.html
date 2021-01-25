@@ -1,0 +1,55 @@
+<section class="row mt-70">
+    <div class="transaction__header">{{ 'recent-transactions' | translate}}</div>
+    <div class="transactions__body">
+        <div class="transactions__search">
+            <div class="search__input">
+                <input #filter (keyup)="search($event)" placeholder="{{ 'search-type' | translate }}">
+                <button *ngIf="filter.value" class="search__clear" (click)="search($event); filter.value = ''">X</button>
+            </div>
+            <div>
+                <p class="sort__string">{{ 'sort-by' | translate}}</p>
+                <button class="sort__button" (click)="sort('dates', 'valueDate')">
+                    <span class="sr-only sr-only-focusable">{{ 'sort-by' | translate}}</span>{{ 'date' | translate }}
+                    <i *ngIf="sortFirst === 'dates' && sortOrder === 'asc'" class="sort sort--asc"></i>
+                    <i *ngIf="sortFirst === 'dates' && sortOrder === 'desc'" class="sort sort--desc"></i>
+                </button>
+                <button class="sort__button" (click)="sort('merchant', 'name')">
+                    <span class="sr-only sr-only-focusable">{{ 'sort-by' | translate}}</span>{{ 'beneficiary' | translate }}
+                    <i *ngIf="sortFirst === 'merchant' && sortOrder === 'asc'" class="sort sort--asc"></i>
+                    <i *ngIf="sortFirst === 'merchant' && sortOrder === 'desc'" class="sort sort--desc"></i>
+                </button>
+                <button class="sort__button" (click)="sort('transaction', 'amountCurrency', 'amount')">
+                    <span class="sr-only sr-only-focusable">{{ 'sort-by' | translate}}</span>{{ 'amount' | translate }}
+                    <i *ngIf="sortFirst === 'transaction' && sortOrder === 'asc'" class="sort sort--asc"></i>
+                    <i *ngIf="sortFirst === 'transaction' && sortOrder === 'desc'" class="sort sort--desc"></i>
+                </button>
+            </div>
+        </div>
+        <div *ngIf="transfers$ | async as transfers; else loading">
+            <div class="transfer__container"
+                *ngFor="let transfer of transfers.data | sort: sortFirst : sortSecond : sortThird : sortOrder ">
+                <div class="transfer__status" [style.background]="transfer.categoryCode"></div>
+                <div class="transfer">
+                    <div class="transfer__date">
+                        <span tabindex="0" class="sr-only">Transaction date {{transfer.dates.valueDate | date: 'MMMM dd'}}</span>
+                        {{transfer.dates.valueDate | date:'MMM. dd'}}
+                    </div>
+                    <div class="transfer__recipient" [ngClass]="transfer.merchant.name | removeSpace"></div>
+                    <div class="transfer__name">
+                        <span tabindex="0" class="sr-only">Transaction recipient {{transfer.merchant.name}}</span>
+                        <span tabindex="0" class="sr-only">Transaction type {{transfer.transaction.type}}</span>
+                        <span>{{transfer.merchant.name}}</span>
+                        <span>{{transfer.transaction.type}}</span>
+                    </div>
+                    <div class="transfer__value">
+                        <span tabindex="0" class="sr-only">Transaction amount {{transfer.transaction.amountCurrency.amount}} {{transfer.transaction.amountCurrency.currencyCode}}</span>
+                        {{transfer.transaction.amountCurrency.amount | currency: transfer.transaction.amountCurrency.currencyCode}}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<ng-template #loading>
+    Loading...
+</ng-template>

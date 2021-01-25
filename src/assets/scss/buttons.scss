@@ -1,0 +1,42 @@
+.buttons__row {
+    display: flex;
+    justify-content: flex-end;
+    padding: 25px;
+    width: 100%;
+}
+
+.btn {
+    width: 200px;
+    height: 40px;
+    border: none;
+    border-radius: 3px;
+    text-transform: uppercase;
+    color: white;
+    margin: 5px;
+    font-family: Kanit;
+}
+
+.btn--orange {
+    background: #EE7033;
+}
+
+.btn--blue {
+    background-color: #0C8397;
+}
+
+.sort {
+    width: 24px;
+    height: 24px;
+    display: inline-block;
+    position: absolute;
+    margin-top: -4px;
+    margin-left: -4px;
+}
+
+.sort--asc {
+    background-image: url('./../images/icon__up.svg');
+}
+
+.sort--desc {
+    background-image: url('./../images/icon__down.svg');
+}

@@ -1,0 +1,12 @@
+<div class="background" *ngIf="showPreview">
+    <div class="message">
+        <div class="message__container">
+            <div class="message__header">{{ 'transfer-question' | translate }}</div>
+            <ng-content select="[body]"></ng-content>
+            <div class="buttons__row">
+                <button class="btn btn--blue" (click)="cancel()">{{ 'cancel-button' | translate }}</button>
+                <button class="btn btn--orange" (click)="agree()">{{ 'transfer' | translate }}</button>
+            </div>
+        </div>
+    </div>
+</div>

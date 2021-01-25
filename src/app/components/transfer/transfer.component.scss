@@ -1,0 +1,22 @@
+.label {
+    margin: 25px 0 0;
+}
+
+.transfer__header {
+    background-color: #0C8397;
+    color: white;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.transfer__form {
+    background: white;
+}
+
+.transfer__row {
+    display: flex;
+    flex-direction: column;
+    padding: 25px;
+}

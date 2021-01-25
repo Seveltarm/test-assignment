@@ -1,0 +1,43 @@
+<app-preview [showPreview]="makeTransfer" (closeModal)="doNotMakeTransfer()" (closeModalAndSend)="sendTransfer()">
+    <div body>
+        <div class="label">{{ 'from-account' | translate }}</div>
+        <div class="value bold">Free Checking (4692)</div>
+        <div class="label">{{ 'account-balance' | translate }}</div>
+        <div class="value bold">{{accountBalance}}</div>
+        <div class="label">{{ 'to-account' | translate }}</div>
+        <div class="value bold">{{transferForm.value.toAccount}}</div>
+        <div class="label">{{ 'amount' | translate }}</div>
+        <div class="value bold">{{transferForm.value.amount}}</div>
+    </div>
+</app-preview>
+
+<section class="row mt-70">
+    <i class="transfer__icon"></i>
+    <div class="transfer__header">{{ 'transfer-title' | translate }}</div>
+    <form class="transfer__form" [formGroup]="transferForm" (ngSubmit)="previewTransfer()">
+        <div class="transfer__row">
+            <label>{{ 'from-account' | translate }}</label>
+            <input formControlName="userAccount" placeholder="Free Checking (4692) - ${{accountBalance}}">
+        </div>
+        <div class="transfer__row">
+            <label>{{ 'to-account' | translate }}</label>
+            <input formControlName="toAccount">
+            <div *ngIf="formInvalid" class="error">
+                <p *ngIf="transferForm.controls['toAccount'].errors?.required">{{ 'required-field' | translate }}</p>
+            </div>
+        </div>
+        <div class="transfer__row">
+            <label>{{ 'amount' | translate }}</label>
+            <input formControlName="amount" placeholder="$ 0.00">
+            <div *ngIf="formInvalid" class="error">
+                <p *ngIf="transferForm.controls['amount'].errors?.required">{{ 'required-field' | translate }}</p>
+            </div>
+            <div *ngIf="accountBalanceToLow" class="error">
+                <p>Account balance after operation will be lower than $-500</p>
+            </div>
+        </div>
+        <div class="buttons__row">
+            <button class="btn btn--orange" type="submit">{{ 'submit' | translate }}</button>
+        </div>
+    </form>
+</section>
